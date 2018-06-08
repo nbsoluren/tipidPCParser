@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="description" content="TipidPC.com - Buy and Sell Computers and Gadgets in the Philippines" />
+<meta http-equiv="X-Frame-Options" content="deny" />
+<title>TipidPC.com - Bakit madaming may ayaw sa PC Express?</title>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="assets/css/v4.css?v5.0.3" />
+<script type="text/javascript" src="/assets/js/tipidpc.js"></script>
+<script type="text/javascript" src="/assets/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.unveil.js"></script>
+<link rel="apple-touch-icon" HREF="/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" HREF="/apple-touch-icon.png" />
+</head>
+<body>
+<div>
+<span>
+<div id="container">
+<div id="layout">
+<div id="header">
+<div id="logo">
+<a href="index.php" style="display:inline-block;margin-right:30px"><img src="assets/images/tpcx.png" width="230" border="0" alt="TipidPC.com" /></a>
+</div>
+</div>
+<div id="left">
+<div><a class="cta" href="forums.php">Visit the Forums</a></div>
+<div><a class="cta" href="signup.php">Register Now!</a></div>
+<div><a class="cta" href="login.php">Member Log In</a></div>
+<div class="window side-module">
+<div class="winbody">
+<form id="item-search-basic" method="get" action="search.php">
+<label for="key">Search TipidPC</label>
+<input id="key" name="key" class="text" type="text">
+<select name="sec">
+<option value="s">Items for Sale</option>
+<option value="b">Want to Buys</option>
+<option value="topics">Forum Topics</option>
+<option value="users">Members</option>
+</select><br />
+<input type="submit" value="Search">
+<div style="margin-top:5px;"><a href="itemsearchex.php">Advanced Item Search</a></div>
+</form>
+</div>
+</div>
+<div class="window itembrowser side-module">
+<div class="winbody">
+<form id="itembrowser" method="get" action="catalog.php">
+<label>Browse the Catalog</label>
+<select name="cat">
+<option value="0">All Categories</option>
+<option value="14">Add-on Cards</option>
+<option value="20">Cables and Adapters</option>
+<option value="16">Casings and Power Supplies</option>
+<option value="6">CD/DVD-R/RW Drives</option>
+<option value="15">Cooling Devices</option>
+<option value="18">Desktops Systems</option>
+<option value="27">Digital Media Players</option>
+<option value="26">Digital and Web Cameras</option>
+<option value="22">Game Consoles</option>
+<option value="25">Game Controllers</option>
+<option value="23">Games and Software</option>
+<option value="4">Graphics Cards</option>
+<option value="5">Hard Disk Drives</option>
+<option value="30">IT Books and References</option>
+<option value="12">LAN and Net Devices</option>
+<option value="13">Laptops and PDAs</option>
+<option value="32">Laptops/PDA Accessories/Parts</option>
+<option value="27">Media Players</option>
+<option value="3">Memory Modules</option>
+<option value="17">Mice, Keyboards</option>
+<option value="11">Monitors, CRT/LCD </option>
+<option value="2">Motherboards</option>
+<option value="31">Multiple Items/Combos</option>
+<option value="7">Portable Media Drives</option>
+<option value="8">Portable Media and Storage</option>
+<option value="28">Printers /Scanners</option>
+<option value="29">Printers Inks/CIS/Toner</option>
+<option value="1">Processors</option>
+<option value="33">Repair Services PC/Laptop</option>
+<option value="9">Sound Cards</option>
+<option value="10">Speakers, Headsets, Mics</option>
+<option value="24">Tech/IT Services</option>
+<option value="19">UPS and AVRs</option>
+<option value="21">Other PC Devices</option>
+<option value="40">Smartphones</option>
+</select>
+<select name="sec">
+<option value="s">Items for Sale</option>
+<option value="b">Want to Buys</option>
+</select>
+<div><input type="submit" value="Show Items"></div>
+</form>
+</div>
+</div>
+</div>
+<div id="main">
+<div class="pad10">
+<div class="window">
+<h3 class="wintitle">Forum Topic</h3>
+<div class="winbody">
+<h1 class="topictitle" style="margin-bottom:5px;">Bakit madaming may ayaw sa PC Express?</h1>
+<table class="pager" cellspacing="0">
+<tr>
+<td>
+<select name="sec" onChange="forumJump(this.options[this.options.selectedIndex].value)">
+<option value="0">Forum Main</option>
+<option value="1">Hardware/Devices</option>
+<option value="2">Programming/R &amp; D</option>
+<option value="3">Software/Games</option>
+<option value="4">Modding/Overclocking</option>
+<option value="5">Networking/Web</option>
+<option value="6">Mobile Computing</option>
+<option value="7">Digital Media &amp; Artwork</option>
+<option value="8">Tech Help/Troubleshooting</option>
+<option value="15" selected>The Lounge</option>
+</select>
+<input type="button" onClick="document.location.href='forums.php?sec=15'" value="Go" />
+</td>
+<td align="right">
+<input type="button" value="Prev" onClick="document.location.href='viewtopic.php?tid=90448&page=14'" />
+<select onchange="document.location.href=this.options[this.selectedIndex].value"><option value="viewtopic.php?tid=90448&page=1">1</option><option value="viewtopic.php?tid=90448&page=2">2</option><option value="viewtopic.php?tid=90448&page=3">3</option><option value="viewtopic.php?tid=90448&page=4">4</option><option value="viewtopic.php?tid=90448&page=5">5</option><option value="viewtopic.php?tid=90448&page=6">6</option><option value="viewtopic.php?tid=90448&page=7">7</option><option value="viewtopic.php?tid=90448&page=8">8</option><option value="viewtopic.php?tid=90448&page=9">9</option><option value="viewtopic.php?tid=90448&page=10">10</option><option value="viewtopic.php?tid=90448&page=11">11</option><option value="viewtopic.php?tid=90448&page=12">12</option><option value="viewtopic.php?tid=90448&page=13">13</option><option value="viewtopic.php?tid=90448&page=14">14</option><option value="viewtopic.php?tid=90448&page=15" selected="selected">15</option></select> <input type="button" value="Next" onClick="document.location.href='viewtopic.php?tid=90448&page=16'" disabled="disabled" />
+</td>
+</tr>
+</table>
+<ul class="posts">
+<li id="p11806318">
+<p class="postmeta">
+<a href="useritems.php?username=Mindtwist">Mindtwist</a>
+on
+13 Nov 16 @ 01:48 PM <a class="direct-link" href="/viewtopic.php?tid=90448&page=15#p11806318">#</a>
+</p>
+<div class="postcontent">
+Hi Guys,<br />
+<br />
+Suplado mga nasa Service Center nila even though I&#039;m talking to them nicely. They are not as accommodating as PC Express Shaw. I swear I will never go back to PC Express Gilmore. <br />
+<br />
+I would not recommend PC Express Gilmore. </div>
+</li>
+<li id="p11807526">
+<p class="postmeta">
+<a href="useritems.php?username=MikhailSantos1998">MikhailSantos1998</a>
+on
+15 Nov 16 @ 04:14 AM <a class="direct-link" href="/viewtopic.php?tid=90448&page=15#p11807526">#</a>
+</p>
+<div class="postcontent">
+I&#039;m gonna bump this thread up.<br />
+<br />
+I&#039;ve actually had a few interactions with PCX and some of the locations. Most of the people are right, the staff (for a tech store) are particularly rude and are fuckin&#039; edgelords. In most cases, I did get to replace some of my Merchandise like my Razer mouse for a different stock, HDD since it was defective, the CPU Case because the wiring for the front panel was not working properly, and also one of my headphones. I&#039;m not sure why they&#039;d jump for the gun on the RMA/Warranty thing, they usually replace mine for a different stock.<br />
+<br />
+I mean they can be better, but they really need to check the people that the employ, I mean there&#039;s a lot of em decent, but there&#039;s also assholes who think they&#039;re fucking Steve Jobs because they&#039;re fresh Grads with their &#039;Computer Engineering&#039; degree.<br />
+<br />
+Nothing much You can do with the price, it&#039;s how most bigger companies operate, they though have sales from time to time so it&#039;s nice to check out, I usually go the Dynaquest for parts, but if I see a sale then I go to PCX. Also, there&#039;s a huge sale in shaw, get there as soon as possible.<br />
+<br />
+Gonna get me a new Razer headphone and a i5 Laptop.<br />
+<br />
+-- edited by MikhailSantos1998 on Nov 15 2016, 04:15 AM </div>
+</li>
+<li id="p11852351">
+<p class="postmeta">
+<a href="useritems.php?username=grimryst">grimryst</a>
+on
+17 Jan 17 @ 10:26 PM <a class="direct-link" href="/viewtopic.php?tid=90448&page=15#p11852351">#</a>
+</p>
+<div class="postcontent">
+Totoo sinabi ni mikhailsantos, back then hindi ko pa alam yung pchub at napabili ako sa pcexpress napakaargugante ng mga staff nila and mga binili kong pc daming sira front panel sound ng casing sira, tapos nagpaamsemble ako ng pc ang baboy gumawa. Kaya kung balak niyong bumili ng pc don&#039;t go to pc express or else you&#039;ll regret it. </div>
+</li>
+<li id="p12018753">
+<p class="postmeta">
+<a href="useritems.php?username=boytoy05">boytoy05</a>
+on
+19 Sep 17 @ 02:10 AM <a class="direct-link" href="/viewtopic.php?tid=90448&page=15#p12018753">#</a>
+</p>
+<div class="postcontent">
+guys magpapa rma sana ako ng binili ko mobo (Msi h110m pro vh) bigla na lang ayaw mag power on e bago nmn psu ko.Ang tanong ko e mas ok ba sa pcx or diretso na ko sa msi? Halo halo na kasi feedback nabasa ko rito so nag aalangan na ako. </div>
+</li>
+<li id="p12019507">
+<p class="postmeta">
+<a href="useritems.php?username=Fargin">Fargin</a>
+on
+19 Sep 17 @ 11:42 PM <a class="direct-link" href="/viewtopic.php?tid=90448&page=15#p12019507">#</a>
+</p>
+<div class="postcontent">
+Better go directly sa MSI, ako noon binili kong Asus mobo sa Gilmore nagloko dinirecho ko sa banbros office ayun palit kagad ng bago tinignan lang yung distro sticker.. </div>
+</li>
+<li id="p12019550">
+<p class="postmeta">
+<a href="useritems.php?username=KiraValentine32">KiraValentine32</a>
+on
+20 Sep 17 @ 01:20 AM <a class="direct-link" href="/viewtopic.php?tid=90448&page=15#p12019550">#</a>
+</p>
+<div class="postcontent">
+Wag bibili sa PCX, matindi yan. It is the worst Computer i bought in there.<br />
+That year 2002 still haunts me until today.<br />
+<br />
+Binili ko tapos sila pa nag assemble that time, pag uwi wala pa 2 weeks sira agad. Both mobo and ram.<br />
+binalik sa kanila ayaw na palitan. Sinisi pa hindi covered ang cause of nature. LOL so stupid.<br />
+Factory defect ayaw pa palitan. Napa double spend ako sa parts. Bought the replacement parts from other shops.<br />
+Sobra kc dalawa weeks nun sira na ayaw pa palitan.<br />
+<br />
+I only bought things there these days kung mura lang yun items and convenience for cheap items nga naman.<br />
+Kahit yun nabili sira na Sata Cable, ang dami nila arte at tanong bago palitan. Yung feeling nila gamit na gamit ang cable kht dalawa araw lang.<br />
+Hampasin ng Barya sa muka nila para mapalitan. Feeling naman kc mahal ang item. 40 pesos lang pffffttt....<br />
+<br />
+-- edited by KiraValentine32 on Sep 20 2017, 01:21 AM </div>
+</li>
+<li id="p12030406">
+<p class="postmeta">
+<a href="useritems.php?username=mec88">mec88</a>
+on
+08 Oct 17 @ 07:55 PM <a class="direct-link" href="/viewtopic.php?tid=90448&page=15#p12030406">#</a>
+</p>
+<div class="postcontent">
+Share ko lng naging experience ko sa customer service nila sa SM North Edsa. Nangyari to few months ago na rin. Pabalik balik ako sa pc express nun.<br />
+<br />
+Bumili ako ng parts nila para iupgrade yung lumang desktop. Di nila tinest yung mga parts basta sabi nila ok na raw lahat. Nung inassemble ko na sa bahay, nakaencounter ako ng dalawang problems.<br />
+<br />
+Ung una, pag-on ko ng pc nakita kong umusok yung isang SATA cable ng power supply kahit di naman naka-plug sa hdd. Bumalik ako sa kanila kinabukasan dala yung power supply. Yung mga technician dun sabi nila impossible daw mangyari yung ganun at ako daw may kasalanan. Sabi pa nila di raw nila pwede ipacover sa warranty din kasi sa kin pa lng daw nangyayari yung ganun. Kaya lumalabas dapat mangyari din dapat sa ibang tao muna para maavail ang warranty...<br />
+<br />
+Ung pangalawang problem ko, nung in-on ko yung pc, walang lumalabas sa monitor. Nung tinanong ko rin yung mga technicians dun kung bakit ganun, wala silang masabi. dalin ko na lng daw yung unit na binuo ko. Lumabas tuloy nagresearch pa ko sa mobile phone at nalaman ko na yung binenta/nirecommend nila sa kin na processor at motherboard ay di compatible at klangan pa iupdate yung BIOS ng motherboard para gumana. SInce wala akong magamit na pc para din madownload yung update dinala ko na lng yung cpu dun sa pc express at sinabi ko sa isang technician dun na yung binenta nila sakin di updated yung BIOS. Tinanong pa ko ng technician dun kung tinest ba daw yung mga parts bago nirelease sa kin, which is supposed to be ganun daw dapat. Pero di na nmn nila tinest yung parts basta sabi nila ayos na raw.<br />
+<br />
+Napagastos pa ko ng extra para lang maservice yung pagupgrade ng BIOS. </div>
+</li>
+<li id="p12046966">
+<p class="postmeta">
+<a href="useritems.php?username=gr8guy">gr8guy</a>
+on
+09 Nov 17 @ 08:17 PM <a class="direct-link" href="/viewtopic.php?tid=90448&page=15#p12046966">#</a>
+</p>
+<div class="postcontent">
+contrary here, made a purchase for PCX SM Annex, they accommodated me and even bought the item from another shop for me. kudos and keep up the good work. </div>
+</li>
+</ul>
+<table class="pager" cellspacing="0">
+<tr>
+<td>
+<select name="sec" onChange="forumJump(this.options[this.options.selectedIndex].value)">
+<option value="0">Forum Main</option>
+<option value="1">Hardware/Devices</option>
+<option value="2">Programming/R &amp; D</option>
+<option value="3">Software/Games</option>
+<option value="4">Modding/Overclocking</option>
+<option value="5">Networking/Web</option>
+<option value="6">Mobile Computing</option>
+<option value="7">Digital Media &amp; Artwork</option>
+<option value="8">Tech Help/Troubleshooting</option>
+<option value="15" selected>The Lounge</option>
+</select>
+<input type="button" onClick="document.location.href='forums.php?sec=15'" value="Go" />
+</td>
+<td align="right">
+<input type="button" value="Prev" onClick="document.location.href='viewtopic.php?tid=90448&page=14'" />
+<select onchange="document.location.href=this.options[this.selectedIndex].value"><option value="viewtopic.php?tid=90448&page=1">1</option><option value="viewtopic.php?tid=90448&page=2">2</option><option value="viewtopic.php?tid=90448&page=3">3</option><option value="viewtopic.php?tid=90448&page=4">4</option><option value="viewtopic.php?tid=90448&page=5">5</option><option value="viewtopic.php?tid=90448&page=6">6</option><option value="viewtopic.php?tid=90448&page=7">7</option><option value="viewtopic.php?tid=90448&page=8">8</option><option value="viewtopic.php?tid=90448&page=9">9</option><option value="viewtopic.php?tid=90448&page=10">10</option><option value="viewtopic.php?tid=90448&page=11">11</option><option value="viewtopic.php?tid=90448&page=12">12</option><option value="viewtopic.php?tid=90448&page=13">13</option><option value="viewtopic.php?tid=90448&page=14">14</option><option value="viewtopic.php?tid=90448&page=15" selected="selected">15</option></select> <input type="button" value="Next" onClick="document.location.href='viewtopic.php?tid=90448&page=16'" disabled="disabled" />
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script>
+$(document).ready(function () {
+  ga('send', 'event', 'ForumTopicPage', 'page-load');
+});
+</script>
+</div>
+<div id="footer">
+<div>&copy; 2001-2018 TipidPC.com. All Rights Reserved.</div>
+<div>
+<a href="rules.php">Site Rules and Guidelines</a>
+<a href="tou.php">Terms of Use</a>
+<a href="viewtopic.php?tid=33400">Lost/Stolen Equipment Registry</a>
+</div>
+<div>Lousily developed and maintained by Jesus A. Domingo using PHP, MySQL and lots of insanity.</div>
+</div>
+</div>
+<div id="notifications"></div>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-69858497-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+  $('div.postcontent img').unveil();
+  $('div.itemdesc img').unveil();
+  $.ajax('/session.php?sd=' + Date.now());
+
+  $('.regbutton a').click(tagger('RegisterCallToAction', 'link-follow'));
+  $('#user-options a').click(tagger('UserOptionsWidget', 'link-follow'));
+  $('#topic-ticker-left a').click(tagger('TopicTickerLeft', 'link-follow'));
+  $('#topic-ticker-right a').click(tagger('TopicTickerRight', 'link-follow'));
+  $('#buddies a').click(tagger('BuddiesContactTool', 'link-follow'));
+  $('#addbuddy').submit(tagger('BuddiesAddTool', 'link-follow'));
+  $('#deletebuddy').submit(tagger('BuddiesDeleteTool', 'link-follow'));
+  $('#ifs_new').click(tagger('IFSNewTicker', 'link-follow'));
+  $('#wtb_new').click(tagger('WTBNewTicker', 'link-follow'));
+  $('#ifs_upd').click(tagger('IFSUpdatedTicker', 'link-follow'));
+  $('#wtb_upd').click(tagger('WTBUpdatedTicker', 'link-follow'));
+  $('#idx_ifs_new').click(tagger('IFSNewFrontList', 'link-follow'));
+  $('#idx_wtb_new').click(tagger('WTBNewFrontList', 'link-follow'));
+  $('#idx_ifs_upd').click(tagger('IFSUpdatedFrontList', 'link-follow'));
+  $('#idx_wtb_upd').click(tagger('WTBUpdatedFrontList', 'link-follow'));
+  $('#itembrowser').submit(tagger('ItemCatalogForm', 'form-submit'));
+  $('#item-search-results .item-name').click(tagger('ItemSearchResultsEntry', 'link-follow'));
+  $('#item-search-basic').submit(tagger('ItemSearchBasicForm', 'form-submit'));
+  $('#item-search-ex').submit(tagger('ItemSearchExForm', 'form-submit'));
+  $('.inquiry-tool').click(tagger('InquiryTool', 'link-follow'));
+  $('.owner-items-tool').click(tagger('UserItemsTool', 'link-follow'));
+  $('.item-bookmark-tool').click(tagger('ItemBookmarkTool', 'link-follow'));
+  $('#articles-ticker a').click(tagger('ArticlesTicker', 'link-follow'));
+  $('#info-center a').click(tagger('InfoCenterTicker', 'link-follow'));
+
+  document._oldTitle = document.title;
+
+  function tagger(category, type) {
+    return function () {
+      ga('send', 'event', category, type);
+    };
+  }
+
+
+  function check() {
+    if (checkerTID != 0) {
+      clearTimeout(checkerTID);
+    }
+    $.ajax('/new/notifications.php?t=' + Date.now()).done(function (data) {
+      renderNotifications(data);
+      updateTickers(data);
+    });
+    setTimeout(check, 60*1000);
+  }
+
+  function renderNotifications(data) {
+    var $notifications = $('#notifications');
+    if (data.total === 0) {
+      $notifications.hide();
+      return;
+    }
+    var t = [];
+    var m = {
+      newRatings: ['new rating', 'ratings'],
+      newMessages: ['new message', 'messageinbox'],
+      updatedTopicBookmarks: ['updated forum bookmark', 'forumbookmarks']
+    };
+    Object.keys(m).forEach(function (k) {
+      if (data[k] > 0) {
+        t.push(
+          '<li><a href="/' + m[k][1] + '.php">' + data[k] +
+          ' ' + m[k][0] +
+          (data[k] != '1' ? 's' : '') +
+          '</a></li>'
+        );
+      }
+    });
+    var markup = 'You have the following updates: <ul>' + t.join('') + '</ul>';
+    $notifications.html(markup).fadeIn();
+    setTimeout(function () {
+      $notifications.fadeOut();
+    }, 15*1000);
+  }
+
+  function updateTickers(data) {
+    var total = parseInt(data.newRatings) + parseInt(data.newMessages) + parseInt(data.updatedBookmarks);
+    $('#ratings-ticker').html(data.newRatings > 0 ? ' (' + data.newRatings + ')': '');
+    $('#messages-ticker').html(data.newMessages > 0 ? ' (' + data.newMessages + ')': '');
+    $('#bookmarks-ticker').html(data.updatedBookmarks > 0 ? ' (' + data.updatedBookmarks + ')': '');
+    $('#forum-bookmarks-ticker').html(data.updatedTopicBookmarks > 0 ? ' (' + data.updatedTopicBookmarks + ')': '');
+    if (total > 0) {
+      document.title = '(' + total + ') ' + document._oldTitle;
+    } else {
+      document.title = document._oldTitle;
+    }
+  }
+
+  function resetNotifications() {
+    check();
+  }
+});
+</script>
+
+</span></div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e5937f478a","applicationID":"14822192","transactionName":"ZQFUMBMFC0oEAkwIWFxLYxYISxNQABZMDkdbBxgUCRQ=","queueTime":0,"applicationTime":8,"atts":"SUZXRlsfGEQ=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
