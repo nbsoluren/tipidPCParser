@@ -2,6 +2,12 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import copy
+import time, datetime
+from datetime import datetime
+import re
+
+
+
 
 def stackParser(url):
 
@@ -38,7 +44,15 @@ def getDate_posted(soup):
     chunk = copy.copy(soup)
     date_posted = chunk.find("p", {"class": "postmeta"})
     date_posted.a.decompose()
-    return date_posted.text
+    rawTime = date_posted.text.split()
+    year = rawTime[3]
+    if (59 <= int(year) <= 99):
+        yearString = '19' + year
+    else:
+        yearString = '20' + year
+    dayString = rawTime[2] + ' ' + rawTime[1] + ' ' + yearString + ' ' + rawTime[5] + rawTime[6]
+    d = datetime.strptime(dayString,'%b %d %Y %I:%M%p')
+    return time.mktime(d.timetuple())
 
 
 
